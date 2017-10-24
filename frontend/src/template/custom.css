@@ -1,8 +1,23 @@
 .btn {
-  margin-right: 5px;
+  margin-right: 4px;
 }
 
 .markedAsDone {
   text-decoration: line-through;
   color: #777;
+}
+
+.todoForm:after {
+  content: '';
+  clear: both;
+  width: 100%;
+  display: block;
+}
+
+.todoForm {
+  margin-bottom: 20px;
+}
+
+.todoActions {
+  width: 105px;
 }
