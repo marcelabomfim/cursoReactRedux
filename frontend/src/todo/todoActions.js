@@ -23,18 +23,19 @@ export const add = (description) => {
   }
 }
 
-export const markAsDone = (todo) => {
+const updateDoneState = (todo, done = true) => {
   return dispatch => {
-    axios.put(`${URL}/${todo._id}`, { ...todo, done: true })
+    axios.put(`${URL}/${todo._id}`, { ...todo, done })
       .then(resp => dispatch(search()))
   }
 }
 
+export const markAsDone = (todo) => {
+  return updateDoneState(todo, true)
+}
+
 export const markAsPending = (todo) => {
-  return dispatch => {
-    axios.put(`${URL}/${todo._id}`, { ...todo, done: false })
-      .then(resp => dispatch(search()))
-  }
+  return updateDoneState(todo, false)
 }
 
 export const remove = (todo) => {
